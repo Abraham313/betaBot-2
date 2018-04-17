@@ -5,6 +5,9 @@
   "main": "bot.js",
   "author": "Matt Smith",
   "license": "ISC",
+  "scripts": {
+    "start": "node bot.js"
+  },
   "dependencies": {
     "discord.js": "^11.3.2",
     "snekfetch": "^3.6.4"
