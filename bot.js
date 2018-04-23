@@ -81,16 +81,7 @@ client.on('guildMemberAdd', member => {
     .setDescription("Our community is getting stronger! We now have " + `${client.users.size}` + " web developers around the world which you can help, learn from, network, and send animal gifs to. Congratulations and thank you for being part of this wonderful group of people!")
     .setThumbnail("https://openclipart.org/image/2400px/svg_to_png/94135/new-year01.png")
 
-    if(client.users.size === 2) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 3) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 4) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 5) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 6) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 7) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 8) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 9) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 10) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
-    if(client.users.size === 11) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers);
+    if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
 
 client.login(process.env.BOT_TOKEN)
