@@ -27,7 +27,7 @@ exports.run = async (client, message, args,) => {
 
     if(message.channel.type !== "dm") {
 
-        if(message.member.roles.some(r=>["leadership team", "management team"].includes(r.name)) ) {
+        if(message.member.roles.some(r=>["Leadership Team", "Management Team"].includes(r.name)) ) {
             message.channel.send({embed: header})
             message.channel.send({embed: embed})
             client.commands.get('rules').run(client, message)
