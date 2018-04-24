@@ -11,7 +11,7 @@ exports.run = async (client, message, args,) => {
         .setColor("#075eea")
         .setAuthor(
             "{Zero to Mastery} - Learn Anything", 
-            "https://cdn.discordapp.com/attachments/433413771982012421/434490807303667713/zeroToMasteryIcon.png", 
+            "https://media.discordapp.net/attachments/434387243579342849/434406596047667200/zeroToMasteryIcon.png", 
             "https://zerotomastery.io")
 
         .setDescription(
