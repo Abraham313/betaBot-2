@@ -4,7 +4,7 @@ exports.run = async (client, message, args, member) => {
 
     //Wont display admin commands in DM, as it cant check user roles
     if(message.channel.type !== "dm") {
-        if(message.member.roles.some(r=>["leadership team", "management team"].includes(r.name)) ) {
+        if(message.member.roles.some(r=>["Leadership Team", "Management Team"].includes(r.name)) ) {
             let embed = new Discord.RichEmbed()
             .setAuthor("** Admin Commands **")
             .setColor("#f442f1")
