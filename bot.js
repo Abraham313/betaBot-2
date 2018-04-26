@@ -71,7 +71,7 @@ client.on("message", async message => {
 //When new member joins the Discord server
 client.on('guildMemberAdd', member => {
     member.send(messages.welcome); //Sends new member a welcome DM 
-    member.addRole(member.guild.roles.find("name", "member")).catch(console.error) //Adds new member to member role
+    member.addRole(member.guild.roles.find("name", "Member")).catch(console.error) //Adds new member to member role
 
     //Announce Member Milestones
     let totalUsers = new Discord.RichEmbed()
