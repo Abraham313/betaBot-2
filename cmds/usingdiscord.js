@@ -6,7 +6,7 @@ exports.run = async (client, message, args,) => {
     .setAuthor("** USING DISCORD **")
     .setColor(0x00AE86)
     .setDescription("Getting started with Discord, click the image below for a larger view.")
-    .setImage("https://cdn.discordapp.com/attachments/433413771982012421/435751632311943168/discordhelp.png")
+    .setImage("https://images-ext-1.discordapp.net/external/-Xo3IeSd8IrfzWjc3izBpEiltiYMAHX6hsNfGnvDhX0/https/cdn.discordapp.com/attachments/433413771982012421/435751632311943168/discordhelp.png?width=832&height=442")
     .addField(
         "1. Servers",
         "Servers are groups, you could think of them as companies. The tool bar on the far left shows all the servers your are currently in.")
