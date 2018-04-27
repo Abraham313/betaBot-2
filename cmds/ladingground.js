@@ -2,7 +2,16 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args, member) => {
 
-    message.addRole(message.guild.roles.find("name", "Member of Team Samir")).catch(console.error) //Adds new member to member role
+
+    let role = message.guild.roles.find("name", "Member of Team Samir");
+
+// or the person who made the command: 
+let member = message.member;
+
+// Add the role!
+member.addRole(role).catch(console.error);
+
+
 
 
 };
