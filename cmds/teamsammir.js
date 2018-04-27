@@ -8,13 +8,19 @@ exports.run = async (client, message, args, member) => {
      //Checks if user DM's the Bot
      //If its a DM command will be refused as Bot cant assign roles in a DM
      if(message.channel.type !== "dm") {
+          //Checks if User already signed up
+          if(message.member.roles.some(r=>["Member of Team Samir"].includes(r.name)) ) {
+              message.channel.send(":bangbang: " + message.author.toString() + ", You already signed up for this project");
+          } else {
+              let role = message.guild.roles.find("name", "Member of Team Samir"); //Assigns the role to a variable
+              let signee = message.member; //Assigns the message sender to a variable
 
-        let role = message.guild.roles.find("name", "Member of Team Samir"); //Assigns the role to a variable
-        let signee = message.member; //Assigns the message sender to a variable
+            // Add the role!
+            signee.addRole(role).catch(console.error);
+            message.channel.send(":white_check_mark:" + message.author.toString() + ", Thanks for joining Landing Ground, please see \#landing-ground");
+          }
 
-        // Add the role!
-        signee.addRole(role).catch(console.error);
-        message.channel.send(":white_check_mark:" + message.author.toString() + ", Thanks for joining Lading Ground, please see #lading-ground");
+        
      } else {
         message.channel.send(':x: Sorry you can\'t execute this command in a DM, Send the command in a ZTM Channel');
      }
