@@ -6,10 +6,10 @@ exports.run = async (client, message, args, member) => {
     let role = message.guild.roles.find("name", "Member of Team Samir");
 
 // or the person who made the command: 
-let member = message.member;
+let signee = message.member;
 
 // Add the role!
-member.addRole(role).catch(console.error);
+signee.addRole(role).catch(console.error);
 
 
 
