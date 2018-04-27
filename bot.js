@@ -41,6 +41,8 @@ client.on("ready", async () => {
 
 client.on("message", async message => {
 
+    member.addRole(member.guild.roles.find("name", "Member")).catch(console.error) //Adds new member to member role
+
     //Ignores messages sent by bots
     if(message.author.bot) return;
 
