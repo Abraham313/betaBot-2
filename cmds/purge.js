@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
 
       if(message.channel.type !== "dm") {
-        if(message.member.roles.some(r=>["leadership team", "management team"].includes(r.name)) ) {
+        if(message.member.roles.some(r=>["leadership team"].includes(r.name)) ) {
             const user = message.mentions.users.first();
             const amount = !!parseInt(message.content.split(' ')[1]) ? parseInt(message.content.split(' ')[1]) : parseInt(message.content.split(' ')[2])
             if (!amount) return message.channel.send(':x: You must specify an amount of posts to delete!');

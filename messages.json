@@ -7,9 +7,19 @@
             "thumbnail": {
                 "url": "https://cdn.discordapp.com/attachments/433413771982012421/434490807303667713/zeroToMasteryIcon.png"
             },
-            "description": 
-            "Welcome to the the Zero to Mastery discord server, I am here to help with any questions you may have. Type ```-help``` into the chat box below for a list of topics I can help you with",
-            "color": 2743241
+            "description":
+            "Welcome to the Zero To Mastery Server. It's never easy arriving in a new location, so I am here to help you get caught up and feeling like home. Try typing `-help` to learn how to use the Zero To Mastery Discord world",
+            "color": 2743241,
+            "fields": [
+                {
+                  "name": "Support Channels",
+                  "value": "Once inside the Zero to Mastery Server checkout `#welcome`, `#how-to-use-discord` and `#music-bot-commands` channels for more help. "
+                },
+                {
+                  "name": "Still Really Confused?",
+                  "value": "Why not drop a message in general chat asking for help, someone will be more than happy to assist you. You could also reach out to one of the Management team for help."
+                }
+              ]
 
         }
     }
