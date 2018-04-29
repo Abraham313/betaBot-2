@@ -13,7 +13,7 @@ exports.run = async (client, message, args, member) => {
 
             // Remove the role!
             signee.removeRole(role).catch(console.error);
-            client.channels.get(`439340817375559680`).send(`:drum: ` + signee + " has left the project")
+            client.channels.get(`439340817375559680`).send(`:cry: ` + signee + " has left the project")
               
           } else {
             message.channel.send(":bangbang: " + message.author.toString() + ", You cant leave a project you havent signed up for");
