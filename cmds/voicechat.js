@@ -6,7 +6,7 @@ exports.run = async (client, message, args,) => {
     .setAuthor("** USING VOICE CHAT **")
     .setColor(0x00AE86)
     .setDescription("Getting started with voice chat, click the image below for a larger view.")
-    .setImage("./assets/voice.png")
+    .setImage("https://cdn.discordapp.com/attachments/435949792389234690/440117418824826890/voice.png")
     .addField(
         "1. Connecting to a voice channel",
         "Connecting to a voice channel as simple as locating a voice channel and clicking on it. Voice channels will have a little speaker icon to the left of the name.")
