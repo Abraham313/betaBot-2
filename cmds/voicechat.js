@@ -17,13 +17,13 @@ exports.run = async (client, message, args,) => {
         "3. Muting yourself", 
         "Clicking this will stop Discord listening to your mic, no one will be able to hear you! This icon will also appear next to your name to show everyone that you are muted")
     .addField(
-        "4. Deafen Yourself", 
+        "4. Deafen yourself", 
         "Clicking this will stop Discord broadcasting to your speakers, you will not be able to hear anyone! Again this icon will appear next to your name.")
     .addBlankField(true)
     .addField(
-        "**ADVANCED SETTINGS", 
-        "Check out this video for some advanced voice settings, such as setting push-to-talk and volume controls! https://youtu.be/LDVqruRsYtA")
-    
+        "ADVANCED SETTINGS", 
+        "Check out this video for some advanced voice settings, such as setting push-to-talk and volume controls! https://youtu.be/LDVqruRsYtA?t=6m14s")
+    .addBlankField(true)
   
     message.channel.send({embed});
    
