@@ -22,6 +22,7 @@ exports.run = async (client, message, args, member) => {
         .addField("-submitcode", "Find out how to submit code on ZTM Discord")
         .addField("-welcome", "Shows the welcome message (DM only)")
         .addField("-discord", "A basic overview of how to use Discord")
+        .addField("-voice", "A basic overview on using voice channels")
         .addField("-rules", "Please check out the community rules")
         .addField("-haste <your code here>", "Have your code submitted to hastebin")
         .addField("-links", "Find a list of some useful resources")
