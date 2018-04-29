@@ -17,7 +17,7 @@ exports.run = async (client, message, args, member) => {
 
             // Add the role!
             signee.addRole(role).catch(console.error);
-            message.channel.send(":white_check_mark:" + message.author.toString() + ", Thanks for joining Landing Ground, please see \#landing-ground");
+            message.channel.send(":white_check_mark:" + message.author.toString() + ", Thanks for signing up for the Survey Web-App project, you can now access the \#landing-ground channel!");
             client.channels.get(`439340817375559680`).send(`:drum: ` + message.author.toString() + " has signed up for the project")
           }
 
