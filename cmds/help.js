@@ -2,19 +2,6 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args, member) => {
 
-    //Wont display admin commands in DM, as it cant check user roles
-    if(message.channel.type !== "dm") {
-        if(message.member.roles.some(r=>["Leadership Team", "Management Team"].includes(r.name)) ) {
-            let embed = new Discord.RichEmbed()
-            .setAuthor("** Admin Commands **")
-            .setColor("#f442f1")
-            .setDescription("The following admin commands are available")
-            .addField(`-ping`, "Pings the bot", true)
-            .addField("-purge <qty>", "Remove the qty of messages", true)
-        message.channel.send({embed: embed});
-        }
-    }
-
     let embed = new Discord.RichEmbed()
         .setAuthor("** HELP TOPICS **")
         .setColor("#075eea")
