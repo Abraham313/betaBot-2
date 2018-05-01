@@ -12,15 +12,15 @@ exports.run = async (client, message, args, member) => {
           if(message.member.roles.some(r=>["Member of Team Samir"].includes(r.name)) ) {
               message.channel.send(":bangbang: " + message.author.toString() + ", You already signed up for this project");
           } else {
-              let role = message.guild.roles.find("name", "Member of Team Samir"); //Assigns the role to a variable
-              let signee = message.member; //Assigns the message sender to a variable
+              //let role = message.guild.roles.find("name", "Member of Team Samir"); //Assigns the role to a variable
+              //let signee = message.member; //Assigns the message sender to a variable
 
               // Add the role!
-              signee.addRole(role).catch(console.error);
-              message.channel.send(":white_check_mark:" + message.author.toString() + ", Thanks for signing up for the Survey Web-App project, you can now access the \#landing-ground channel!");
-              client.channels.get(`439340817375559680`).send(`:drum: ` + message.author.toString() + " has signed up for the project");
+              //signee.addRole(role).catch(console.error);
+              //message.channel.send(":white_check_mark:" + message.author.toString() + ", Thanks for signing up for the Survey Web-App project, you can now access the \#landing-ground channel!");
+              //client.channels.get(`439340817375559680`).send(`:drum: ` + message.author.toString() + " has signed up for the project");
 
-              //message.channel.send(":exclamation: " + message.author.toString() + ", Thanks for for your interest in the Survey Web-App project, unfortunately the project is full. If you missed your chance to become a member, don't worry, you can still make pull requests to our project, which will be reviewed thoroughly to make sure that it is safe to merge.");
+              message.channel.send(":exclamation: " + message.author.toString() + ", Thanks for for your interest in the Survey Web-App project, unfortunately the project is full. If you missed your chance to become a member, don't worry, you can still make pull requests to our project, which will be reviewed thoroughly to make sure that it is safe to merge.");
           }
 
         
