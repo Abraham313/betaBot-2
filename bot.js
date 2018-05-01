@@ -81,7 +81,7 @@ client.on('guildMemberAdd', member => {
     .setDescription("Our community is getting stronger! We now have " + `${client.users.size}` + " web developers around the world which you can help, learn from, network, and send animal gifs to. Congratulations and thank you for being part of this wonderful group of people!")
     .setThumbnail("https://openclipart.org/image/2400px/svg_to_png/94135/new-year01.png")
 
-    if(client.users.size === 1050) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
+    if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
 
 client.login(process.env.BOT_TOKEN)
