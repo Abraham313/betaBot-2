@@ -1,7 +1,6 @@
 const discord = require('discord.js');
 const fetch = require('node-fetch');
 
-console.log(process.env.CSE_API);
 const bot = new discord.Client;
 let url2fetch = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.CSE_API + '&cx=017576662512468239146:omuauf_lfve&q='
 
@@ -9,6 +8,7 @@ let url2fetch = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.
 
 exports.run = (client, message, args) => {
     
+    console.log(process.env.CSE_API);
     bot.on('message', message => {
         if (message.content.split(' ').length == 1) {
             message.channel.send(`${message.author}, Please provide a search query. I can't search **nothing** for you. \:confused:`)
