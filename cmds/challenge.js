@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
         .setColor("#075eea")
         .setDescription(submission)
 
-    client.users.get('179604866807627777').send(`${embed}`);
+    client.users.get('179604866807627777').send({embed: embed});
 };
 
 exports.help = {
