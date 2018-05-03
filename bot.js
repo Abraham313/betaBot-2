@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const config = require("./config.json");
 const messages = require("./messages.json")
-const search = require("./websearch.js")
 
 const prefix = config.prefix;
 
@@ -58,13 +57,6 @@ client.on("message", async message => {
     let command = messageArray[0];
     let args = messageArray.slice(1);
 
-
-    // bot performs web search  
-    client.on('message', message => {
-        if (message === prefix + "search") {
-            search();
-        }
-    })
 
     if(!command.startsWith(prefix)) return;
 
