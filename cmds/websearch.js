@@ -22,14 +22,14 @@ exports.run = async (client, message, args) => {
             fetch(url2fetch + searchQuery)
             .then(res => res.json())
             .then(res => {
-                for (let i=0; i<3; i++) {
+                // for (let i=0; i<3; i++) {
                     msg.edit({embed: {
                         color:  Math.floor(Math.random() * 16777214) + 1,
                         title: res.items[i].title,
                         url: res.items[i].link,
                         description: res.items[i].snippet
                     }})
-                }
+                // }
             })
         }
     // })
