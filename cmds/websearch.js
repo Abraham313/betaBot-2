@@ -1,11 +1,11 @@
 const discord = require('discord.js');
 const fetch = require('node-fetch');
 
-const bot = new discord.Client;
+//const bot = new discord.Client;
 let url2fetch = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.CSE_API + '&' + process.env.CSE_CX +'&q=';
 
 const randRespMsg = [
-    "I find something for you deep in the web. \:point_down:", 
+    "I found something for you deep in the web. \:point_down:", 
     "I found a couple of awesome results, check them out. \:point_down:", 
     "I'm pretty sure one of these is exactly what you are looking for, don't you think? \:point_down:"
 ]
