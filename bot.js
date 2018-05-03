@@ -58,6 +58,14 @@ client.on("message", async message => {
     let command = messageArray[0];
     let args = messageArray.slice(1);
 
+
+    // bot performs web search  
+    client.on('message', message => {
+        if (message === prefix + "search") {
+            search();
+        }
+    })
+
     if(!command.startsWith(prefix)) return;
 
     let cmd = client.commands.get(command.slice(prefix.length));
@@ -85,7 +93,5 @@ client.on('guildMemberAdd', member => {
     if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
 
- // search 
- search();
 
-client.login(process.env.BOT_TOKEN)
+client.login(config.token || process.env.BOT_TOKEN)
