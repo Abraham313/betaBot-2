@@ -5,9 +5,9 @@ const bot = new discord.Client;
 let url2fetch = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.CSE_API + '&' + process.env.CSE_CX +'&q=';
 
 const randRespMsg = [
-    "${message.author}, I find something for you deep in the web. \:point_down:", 
-    "${message.author}, I found a couple of awesome results, check them out. \:point_down:", 
-    "${message.author}, I'm pretty sure one of these is exactly what you are looking for, don't you think? \:point_down:"
+    "I find something for you deep in the web. \:point_down:", 
+    "I found a couple of awesome results, check them out. \:point_down:", 
+    "I'm pretty sure one of these is exactly what you are looking for, don't you think? \:point_down:"
 ]
 
 
@@ -31,8 +31,9 @@ exports.run = async (client, message, args) => {
 
             // generating random message 
             let randMsgNum = Math.floor(Math.random()*(randRespMsg.length - 0 + 1 ) + 0);
+            msg.edit(`${message.author}, ${randRespMsg[randMsgNum]}`)
 
-            msg.edit(`${randRespMsg[randMsgNum]}`)
+
             for (let i=0; i<3; i++) {
 
                 message.channel.send({embed: {
