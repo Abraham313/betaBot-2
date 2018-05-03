@@ -2,7 +2,13 @@ const discord = require('discord.js');
 const fetch = require('node-fetch');
 
 const bot = new discord.Client;
-let url2fetch = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.CSE_API + '&' + process.env.CSE_CX +'&q='
+let url2fetch = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.CSE_API + '&' + process.env.CSE_CX +'&q=';
+
+const randRespMsg = [
+    "${message.author}, I find something for you deep in the web. \:point_down:", 
+    "${message.author}, I found a couple of awesome results, check them out. \:point_down:", 
+    "${message.author}, I'm pretty sure one of these is exactly what you are looking for, don't you think? \:point_down:"
+]
 
 
 
@@ -16,12 +22,19 @@ exports.run = async (client, message, args) => {
         searchQuery = searchQuery.join('+');
         console.log(searchQuery)
         const msg = await message.channel.send(`${message.author}, hold on! I am searching the web hard to find the best match of your query. \:nerd: `)
+        
         // CSE
         fetch(url2fetch + searchQuery)
         .then(res => res.json())
         .then(res => {
-            msg.edit(`${message.author}, I find something for you deep in the web. Have a look on it. \:point_down:`)
+
+
+            // generating random message 
+            let randMsgNum = Math.floor(Math.random()*(randRespMsg.length - 0 + 1 ) + 0);
+
+            msg.edit(`${randRespMsg[randMsgNum]}`)
             for (let i=0; i<3; i++) {
+
                 message.channel.send({embed: {
                     color:  Math.floor(Math.random() * 16777214) + 1,
                     title: res.items[i].title,
