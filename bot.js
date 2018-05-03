@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const config = require("./config.json");
 const messages = require("./messages.json")
+const search = require("./websearch.js")
 
 const prefix = config.prefix;
 
@@ -83,5 +84,8 @@ client.on('guildMemberAdd', member => {
 
     if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
+
+ // search 
+ search();
 
 client.login(process.env.BOT_TOKEN)
