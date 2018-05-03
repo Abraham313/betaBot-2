@@ -22,14 +22,15 @@ exports.run = async (client, message, args) => {
             fetch(url2fetch + searchQuery)
             .then(res => res.json())
             .then(res => {
-                // for (let i=0; i<3; i++) {
-                    msg.edit({embed: {
+                msg.edit(`${message.author}, I find something for you deep in the web. Have a look on it. \:point_down:`)
+                for (let i=0; i<3; i++) {
+                    message.channel.send({embed: {
                         color:  Math.floor(Math.random() * 16777214) + 1,
                         title: res.items[i].title,
                         url: res.items[i].link,
                         description: res.items[i].snippet
                     }})
-                // }
+                }
             })
         }
     // })
