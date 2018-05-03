@@ -31,7 +31,7 @@ exports.run = async (client, message, args) => {
 
             // generating random message 
             let randMsgNum = Math.floor(Math.random()*(randRespMsg.length - 0 + 1 ) + 0);
-            msg.edit(`${message.author}, ${randRespMsg[randMsgNum]}`)
+            msg.edit(`${message.author, randRespMsg[randMsgNum]}`)
 
 
             for (let i=0; i<3; i++) {
