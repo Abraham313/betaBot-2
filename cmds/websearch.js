@@ -9,7 +9,7 @@ let url2fetch = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.
 exports.run = (client, message, args) => {
     
     console.log(process.env.CSE_API);
-    bot.on('message', message => {
+    // bot.on('message', message => {
         if (message.content.split(' ').length == 1) {
             message.channel.send(`${message.author}, Please provide a search query. I can't search **nothing** for you. \:confused:`)
         } else {
@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
                 }
             })
         }
-    })
+    // })
 
 };
 
