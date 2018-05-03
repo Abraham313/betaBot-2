@@ -10,9 +10,6 @@ let url2fetch = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.
 exports.run = (client, message, args) => {
     
     bot.on('message', message => {
-        if (!message.content.startsWith(config.prefix + "search") || message.author.bot) {
-            return;
-        } 
         if (message.content.split(' ').length == 1) {
             message.channel.send(`${message.author}, Please provide a search query. I can't search **nothing** for you. \:confused:`)
         } else {
