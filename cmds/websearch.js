@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
 
 
             // generating random message 
-            let randMsgNum = Math.floor(Math.random()*(randRespMsg.length - 0 + 1 ) + 0);
+            let randMsgNum = Math.floor(Math.random()*(2 - 0 + 1 ) + 0);
             let message2send = message.author + ", " + randRespMsg[randMsgNum];
             msg.edit(message2send)
 
