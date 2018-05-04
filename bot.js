@@ -85,5 +85,4 @@ client.on('guildMemberAdd', member => {
     if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
 
-
 client.login(process.env.BOT_TOKEN)
