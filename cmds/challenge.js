@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
         client.users.get('179604866807627777').send({embed: embed});
 
         //Sends to a Channel (Cirrently Submission Demo)
-        client.channels.get(`441767451852800000`).send()
+        client.channels.get(`441767451852800000`).send({embed: embed})
 
         //Replys to User
         message.reply(":white_check_mark: Thanks for submitting your coding challenge entry!");
