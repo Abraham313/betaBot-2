@@ -37,14 +37,14 @@ exports.run = (client, message, args) => {
 
 
         //Define Embed
-        let embed = new Discord.RichEmbed()
+        let embedHeroku = new Discord.RichEmbed()
             .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.avatarURL)
             .setColor("#075eea")
-            .setDescription(`Check out my submission for **${challengeNumber}**`)
-            .addField("GitHub Repo", `(https://github.com/${gh})`)
+            .setDescription(`Check out my submission for **Coding Challenge ${challengeNumber}**`)
+            .addField("GitHub Repo", `(https://github.com/${heroku})`)
             
         //Sends Results To Someone (Currently Matt)
-        client.users.get('179604866807627777').send({embed: embed});
+        client.users.get('179604866807627777').send({embed: embedHeroku});
 
         //Sends to a Channel (Cirrently Submission Demo)
         client.channels.get(`441767451852800000`).send({embed: embed})
