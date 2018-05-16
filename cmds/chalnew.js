@@ -44,7 +44,7 @@ exports.run = (client, message, args) => {
     }
 
     //If comments have been provided, add them to the embed
-    if(desc.length > 4) embed.addField("Author Description", `${desc}`)
+    if(desc.length > 4) embed.addBlankField, embed.addField("Author Description", `${desc}`)
     
     //Send Embed
     message.reply(":white_check_mark: Thanks for submitting your coding challenge entry!", {embed: embed});
