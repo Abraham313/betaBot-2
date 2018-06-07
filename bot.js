@@ -45,8 +45,6 @@ client.on("message", async message => {
     //Ignores messages sent by bots
     if(message.author.bot) return;
 
-    // Scripts 
-    require('./scripts/antiman')();
 
     //Bot recieves DM
     if(message.channel.type === "dm") {
@@ -62,7 +60,8 @@ client.on("message", async message => {
     let args = messageArray.slice(1);
 
 
-    if(!command.startsWith(prefix)) return;
+    if(!command.startsWith(prefix)) require('./scripts/antiman')();
+
 
     let cmd = client.commands.get(command.slice(prefix.length));
     if(cmd) {
