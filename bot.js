@@ -3,6 +3,8 @@ const fs = require("fs");
 const config = require("./config.json");
 const messages = require("./messages.json")
 
+process.setMaxListeners(0); // to set event listeners to infinity 
+
 
 const prefix = config.prefix;
 
