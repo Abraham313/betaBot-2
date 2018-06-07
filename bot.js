@@ -90,10 +90,8 @@ client.on('guildMemberAdd', member => {
     if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
 
- client.on('messageReactionAdd', (reaction, user) => {
-    if(reaction.emoji.name === ":sweat_smile:") {
-        console.log(reaction.users);
-    }
+client.on('raw', event => {
+    console.log('\nRaw event data:\n', event);
 });
 
 client.login(process.env.BOT_TOKEN)
