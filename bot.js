@@ -98,14 +98,14 @@ client.on('guildMemberAdd', member => {
 const getEmojiCount = (message) => {
     client.on('raw', event => {
         if (event.t == 'MESSAGE_REACTION_ADD') {
-            if (event.d.emoji.name === '😡') {
+            if (event.d.emoji.name === ':rage:') {
                 let messageID =  event.d.message_id;
                 message.channel.fetchMessage(messageID).then(function(r){
-                    let emojiCount = r.reactions.filter(a => a.emoji.name == '👎').map(reaction => reaction.count)[0];
+                    let emojiCount = r.reactions.filter(a => a.emoji.name == ':rage:').map(reaction => reaction.count)[0];
 
                     // client.channels.get(454393291690213409).send('Test Message');
                     console.log(message.channel.fetchMessage(messageID));
-                    return message.author.send(`You have been warned ${message.author} for sending "${message.channel.fetchMessage(messageID)}"`);
+                    return client.;
                 })
             }
         }
@@ -114,4 +114,4 @@ const getEmojiCount = (message) => {
 
 
 
-client.login(process.env.BOT_TOKEN)
+// client.login(process.env.BOT_TOKEN)
