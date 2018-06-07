@@ -1,6 +1,6 @@
 const discord = require('discord.js');
 
-const client = discord.Client({disableEveryone: true});
+const client = new discord.Client({disableEveryone: true});
 
 module.exports = () => {
     client.on('message', msg => {
