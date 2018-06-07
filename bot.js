@@ -101,7 +101,8 @@ const getEmojiCount = (message) => {
             if (event.d.emoji.name === '😡') {
                 let messageID =  event.d.message_id;
                 message.channel.fetchMessage(messageID).then(function(r){
-                    return console.log(r.reactions);
+                    let emojiCount = r.reactions.filter(a => a.emoji.name == '👎').map(reaction => reaction.count)[0];
+                    return message.author.send(`Yu have been warned ${message.author} for sending "${message}"`);
                 })
             }
         }
