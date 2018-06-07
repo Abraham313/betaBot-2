@@ -102,7 +102,10 @@ const getEmojiCount = (message) => {
                 let messageID =  event.d.message_id;
                 message.channel.fetchMessage(messageID).then(function(r){
                     let emojiCount = r.reactions.filter(a => a.emoji.name == '👎').map(reaction => reaction.count)[0];
-                    return message.author.send(`Yu have been warned ${message.author} for sending "${message}"`);
+
+                    // client.channels.get(454393291690213409).send('Test Message');
+                    console.log(message.channel.fetchMessage(messageID));
+                    return message.author.send(`You have been warned ${message.author} for sending "${message.channel.fetchMessage(messageID)}"`);
                 })
             }
         }
@@ -111,4 +114,4 @@ const getEmojiCount = (message) => {
 
 
 
-client.login(process.env.BOT_TOKEN || 'NDQxMTc4NDI3NjY4NjkyOTky.Dcse_w.Uy2RPq6ZfcWh-WjhoujKBS_CFtQ')
+client.login(process.env.BOT_TOKEN)
