@@ -91,9 +91,9 @@ client.on('guildMemberAdd', member => {
  });
 
 client.on('raw', event => {
-    client.on('MESSAGE_REACTION_ADD', event => {
-        console.log(event);
-    })
+    if (event.t === 'MESSAGE_REACTION_ADD') {
+        console.log(event.d);
+    }
 });
 
 client.login(process.env.BOT_TOKEN)
