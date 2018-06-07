@@ -60,13 +60,16 @@ client.on("message", async message => {
     let args = messageArray.slice(1);
 
 
-    if(!command.startsWith(prefix)) require('./scripts/antiman')();
+    if(!command.startsWith(prefix)) {
+        let antiman = require('./scripts/antiman');
+    };
 
 
     let cmd = client.commands.get(command.slice(prefix.length));
     if(cmd) {
         cmd.run(client, message, args);
     } else {
+        antiman();
         message.channel.send(":x: I'm not sure what you want to do please choose one of the following commands!")
         client.commands.get('help').run(client, message)
     }
