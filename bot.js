@@ -3,8 +3,6 @@ const fs = require("fs");
 const config = require("./config.json");
 const messages = require("./messages.json")
 
-// Scripts 
-require('./scripts/antiman');
 
 const prefix = config.prefix;
 
@@ -46,6 +44,9 @@ client.on("message", async message => {
 
     //Ignores messages sent by bots
     if(message.author.bot) return;
+    
+    // Scripts 
+    require('./scripts/antiman');
 
     //Bot recieves DM
     if(message.channel.type === "dm") {
