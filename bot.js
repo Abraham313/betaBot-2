@@ -61,7 +61,7 @@ client.on("message", async message => {
 
 
     if(!command.startsWith(prefix)) {
-        message.reply(`Working`);
+        message.react(":heart_eyes:");
         return;
     };
 
