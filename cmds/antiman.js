@@ -1,5 +1,9 @@
-// const discord = require('discord.js');
+const discord = require('discord');
 
-// exports.run = (client, message, args) => {
-//     message.channel.send(message.channel.id);
-// }
+exports.run = (client, message, args) => {
+    message.channel.send(message.channel.id);
+}
+
+exports.help = {
+    name: ''
+}
