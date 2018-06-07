@@ -1,6 +1,8 @@
-// const discord = require('discord.js');
-// const client = new discord.Client({disableEveryone: true});
+const discord = require('discord.js');
+const client = new discord.Client({disableEveryone: true});
 
-module.exports = (message => {
-    message.reply('Working');
-})();
+const checkReaction = () => {
+    client.on('MESSAGE_REACTION_ADD', event => {
+        console.log(event);
+    })
+}
