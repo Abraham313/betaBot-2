@@ -61,8 +61,7 @@ client.on("message", async message => {
 
 
     if(!command.startsWith(prefix)) {
-        let reply = message.reply
-        require('./scripts/antiman')(reply);
+        require('./scripts/antiman')(message);
         return;
     };
 
