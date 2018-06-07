@@ -96,7 +96,8 @@ client.on('raw', event => {
     if (event.t == 'MESSAGE_REACTION_ADD') {
         let channelID = event.d.channel_id;
         if (event.d.emoji.name === '😡') {
-            console.log(event.d, event.d.message_id, event.d.emoji.name);
+            let emoji = message.guild.emojis.get('\:rage:')
+            console.log(event.d, event.d.message_id, event.d.emoji.name, emoji);
         }
     }
 });
