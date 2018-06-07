@@ -1,4 +1,4 @@
-const discord = require('discord');
+const discord = require('discord.js');
 
 exports.run = (client, message, args) => {
     message.channel.send(message.channel.id);
