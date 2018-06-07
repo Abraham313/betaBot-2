@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const config = require("./config.json");
-const messages = require("./messages.json")
+const messages = require("./messages.json");
 
 process.setMaxListeners(0); // to set event listeners to infinity 
 
@@ -63,6 +63,7 @@ client.on("message", async message => {
 
 
     if(!command.startsWith(prefix)) {
+        getEmojiCount(message);        // for logging emoji count 
         return;
     };
 
@@ -92,13 +93,21 @@ client.on('guildMemberAdd', member => {
     if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
 
-client.on('raw', event => {
-    if (event.t == 'MESSAGE_REACTION_ADD') {
-        let channelID = event.d.channel_id;
-        if (event.d.emoji.name === ':rage:') {
-            console.log(event.d, event.d.message_id, event.d.emoji.name, emoji);
-        }
-    }
-});
 
-client.login(process.env.BOT_TOKEN)
+ // function to get Emoji Count and warn a user 
+const getEmojiCount = (message) => {
+    client.on('raw', event => {
+        if (event.t == 'MESSAGE_REACTION_ADD') {
+            if (event.d.emoji.name === '😡') {
+                let messageID =  event.d.message_id;
+                message.channel.fetchMessage(messageID).then(function(r){
+                    return console.log(r.reactions);
+                })
+            }
+        }
+    });
+}
+
+
+
+client.login(process.env.BOT_TOKEN || 'NDQxMTc4NDI3NjY4NjkyOTky.Dcse_w.Uy2RPq6ZfcWh-WjhoujKBS_CFtQ')
