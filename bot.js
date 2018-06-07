@@ -44,9 +44,9 @@ client.on("message", async message => {
 
     //Ignores messages sent by bots
     if(message.author.bot) return;
-    
+
     // Scripts 
-    require('./scripts/antiman');
+    require('./scripts/antiman')();
 
     //Bot recieves DM
     if(message.channel.type === "dm") {
