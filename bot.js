@@ -3,6 +3,9 @@ const fs = require("fs");
 const config = require("./config.json");
 const messages = require("./messages.json")
 
+// Scripts 
+require('./scripts/antiman');
+
 const prefix = config.prefix;
 
 const client = new Discord.Client({disableEveryone: true});  //Prevents the bot from using @everyone
