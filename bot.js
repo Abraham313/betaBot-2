@@ -61,7 +61,6 @@ client.on("message", async message => {
 
 
     if(!command.startsWith(prefix)) {
-        message.react(":heart_eyes:");
         return;
     };
 
@@ -90,5 +89,11 @@ client.on('guildMemberAdd', member => {
 
     if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
+
+ client.on('messageReactionAdd', (reaction, user) => {
+    if(reaction.emoji.name === ":sweat_smile:") {
+        console.log(reaction.users);
+    }
+});
 
 client.login(process.env.BOT_TOKEN)
