@@ -69,7 +69,7 @@ client.on("message", async message => {
     if(cmd) {
         cmd.run(client, message, args);
     } else {
-        antiman();
+        antiman;
         message.channel.send(":x: I'm not sure what you want to do please choose one of the following commands!")
         client.commands.get('help').run(client, message)
     }
