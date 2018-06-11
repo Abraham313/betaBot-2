@@ -103,7 +103,7 @@ client.commands = new Discord.Collection();
         .setFooter("Deleted: ")
         .setTimestamp()
 
-        client.channels.get(chanID.deletedChannel).send("The following message was deleted:", {embed});
+        // client.channels.get(chanID.deletedChannel).send("The following message was deleted:", {embed});
     });
 
 client.login(process.env.BOT_TOKEN)
