@@ -58,7 +58,7 @@ client.commands = new Discord.Collection();
         }
 
         // Checks if Message Contains Discord Link
-        if(message.includes("discord.gg/")) {
+        if(message.content.includes("discord.gg/")) {
             message.delete(1000); //delete message
             message.reply(" You are not permitted to send Discord Server links in this community")           
         }
