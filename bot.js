@@ -1,7 +1,10 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const config = require("./config.json");
-const messages = require("./messages.json")
+const messages = require("./messages.json");
+
+process.setMaxListeners(0); // to set event listeners to infinity 
+
 
 const prefix = config.prefix;
 
@@ -45,6 +48,7 @@ client.on("message", async message => {
     //Ignores messages sent by bots
     if(message.author.bot) return;
 
+
     //Bot recieves DM
     if(message.channel.type === "dm") {
         if(!message.content.startsWith(`${prefix}`)) {
@@ -58,7 +62,16 @@ client.on("message", async message => {
     let command = messageArray[0];
     let args = messageArray.slice(1);
 
+<<<<<<< HEAD
     if(!command.startsWith(prefix)) return;
+=======
+
+    if(!command.startsWith(prefix)) {
+        getEmojiCount(message);        // for logging emoji count 
+        return;
+    };
+
+>>>>>>> 381dec53ee23be573c40205f150ea6d4f9570775
 
     let cmd = client.commands.get(command.slice(prefix.length));
     if(cmd) {
@@ -85,6 +98,7 @@ client.on('guildMemberAdd', member => {
     if((client.users.size % 1000) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
 
+<<<<<<< HEAD
  client.on("messageDelete", messageDelete => {
    
     const embed = new Discord.RichEmbed()
@@ -98,3 +112,27 @@ client.on('guildMemberAdd', member => {
 });
 
 client.login(process.env.BOT_TOKEN)
+=======
+
+ // function to get Emoji Count and warn a user 
+const getEmojiCount = (message) => {
+    client.on('raw', event => {
+        if (event.t == 'MESSAGE_REACTION_ADD') {
+            if (event.d.emoji.name === ':rage:') {
+                let messageID =  event.d.message_id;
+                message.channel.fetchMessage(messageID).then(function(r){
+                    let emojiCount = r.reactions.filter(a => a.emoji.name == ':rage:').map(reaction => reaction.count)[0];
+
+                    // client.channels.get(454393291690213409).send('Test Message');
+                    console.log(message.channel.fetchMessage(messageID));
+                    return client.;
+                })
+            }
+        }
+    });
+}
+
+
+
+// client.login(process.env.BOT_TOKEN)
+>>>>>>> 381dec53ee23be573c40205f150ea6d4f9570775
