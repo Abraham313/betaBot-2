@@ -44,10 +44,14 @@ exports.run = (client, message, args) => {
     }
 
     //If comments have been provided, add them to the embed
-    if(desc.length > 4) embed.addBlankField, embed.addField("Author Description", `${desc}`)
+    if(desc.length > 4) embed.addBlankField(), embed.addField("Author Description", `${desc}`)
     
-    //Send Embed
-    message.reply(":white_check_mark: Thanks for submitting your coding challenge entry!", {embed: embed});
+    //Sends to Admin Channel (#submissions)
+    client.channels.get(`445660911693201419`).send({embed: embed})
+
+    //Replys to User in #coding-challenge
+    client.channels.get(`445660911693201419`).send(":white_check_mark:" + message.author.toString() + "Thanks for submitting your coding challenge entry!", {embed: embed});
+
 };
 
 exports.help = {

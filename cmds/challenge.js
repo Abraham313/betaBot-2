@@ -1,37 +1,57 @@
 const Discord = require("discord.js");
+const challengeNumber = 6; //Define Challenge Number (Coding Challenge #5)
 
 exports.run = (client, message, args) => {
 
-    if (!args[0]) return message.reply("No submission detected. Please use the following structure \`\`\`=challenge Coding Challenge#5 Submission: check it out github.com/username/repo\`\`\`");
-    if (args[0] === "challenge") return message.reply("No submission detected. Please use the following structure \`\`\`=challenge Coding Challenge#5 Submission: check it out github.com/username/repo\`\`\`");
-    
+    //Converts Arguments array to string
     submission = args.join(" ");
-    if (!submission.includes("github.com")) {
-        message.reply("Please ensure your include your github repo");
-    } else {
 
-        //Brutally extract github repo from args
-        let gh = (submission + " ").slice(submission.indexOf("github.com/"), submission.indexOf(" ",submission.indexOf("github.com/"))).slice(11)
+    //Validates submission - Ensures it contains a link
+    desc = submission;
+    if (!submission.match(/\bhttps?:\/\/\S+/gi)) {
+        message.reply(":bangbang: Please ensure you include at least one link to your project. All links **MUST** include http(s)://")
+        return client.commands.get('challenge-help').run(client, message)
 
-        //Define Coding Challenge # eg. Coding-Challenge 5
-        let challengeNumber =  submission.slice(submission.indexOf("Coding Challenge#"), 19 )
-
-        //Define Embed
-        let embed = new Discord.RichEmbed()
-            .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.avatarURL)
-            .setColor("#075eea")
-            .setDescription(`Check out my submission for **${challengeNumber}**`)
-            .addField("GitHub Repo", `(https://github.com/${gh})`)
-            
-        //Sends Results To Someone (Currently Matt)
-        client.users.get('179604866807627777').send({embed: embed});
-
-        //Sends to a Channel (Cirrently Submission Demo)
-        client.channels.get(`441767451852800000`).send({embed: embed})
-
-        //Replys to User
-        message.reply(":white_check_mark: Thanks for submitting your coding challenge entry!");
     }
+
+    //Extracts URLS
+    let urls = submission.match(/\bhttps?:\/\/\S+/gi);
+    
+    //Define Embed
+    let embed = new Discord.RichEmbed()
+    .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.avatarURL)
+    .setColor("#ff3399")
+    .setDescription(`Check out my submission for **Coding Challenge ${challengeNumber}**`)
+    .setFooter("Submitted: ")
+    .setTimestamp()
+
+    //Proccess Links - Creates Header and then adds the links to the embed
+    for (i = 0; i < (urls.length); i++) {
+        
+        if(urls[i].includes("heroku")){
+            var site = "Heroku Deployment"
+        } else if(urls[i].includes("github.com")) {
+            var site = "Github Repo"
+        } else if(urls[i].includes("github.io")) {
+            var site = "Github Pages"
+        } else {
+            var site = "Other Link"
+        }
+
+        embed.addField(`${site}`, urls[i])
+        var desc = desc.replace(urls[i],"");
+
+    }
+
+    //If comments have been provided, add them to the embed
+    if(desc.length > 4) embed.addBlankField(), embed.addField("Author Description", `${desc}`)
+    
+    //Sends to Admin Channel (#submissions)
+    client.channels.get(`445660911693201419`).send({embed: embed})
+
+    //Replys to User in #coding-challenge
+    client.channels.get(`434849407054381096`).send(":white_check_mark:" + message.author.toString() + "Thanks for submitting your coding challenge entry!", {embed: embed});
+
 };
 
 exports.help = {

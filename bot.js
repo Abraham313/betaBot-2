@@ -30,6 +30,7 @@ fs.readdir("./cmds/", (err, files) => {
 
 client.on("ready", async () => {
     console.log(`${client.user.username} is ready!`)
+    client.commands.get('roleUser').run(client)
     client.user.setActivity(config.activity, { type: 'WATCHING'});
     try {
         let link = await client.generateInvite(["ADMINISTRATOR"]);
@@ -57,7 +58,6 @@ client.on("message", async message => {
     let command = messageArray[0];
     let args = messageArray.slice(1);
 
-
     if(!command.startsWith(prefix)) return;
 
     let cmd = client.commands.get(command.slice(prefix.length));
@@ -82,7 +82,19 @@ client.on('guildMemberAdd', member => {
     .setDescription("Our community is getting stronger! We now have " + `${client.users.size}` + " web developers around the world which you can help, learn from, network, and send animal gifs to. Congratulations and thank you for being part of this wonderful group of people!")
     .setThumbnail("https://openclipart.org/image/2400px/svg_to_png/94135/new-year01.png")
 
-    if((client.users.size % 500) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
+    if((client.users.size % 1000) === 0) client.channels.get(`${config.milestoneChannelID}`).send(totalUsers)
  });
+
+ client.on("messageDelete", messageDelete => {
+   
+    const embed = new Discord.RichEmbed()
+        .setAuthor(messageDelete.author.tag, messageDelete.author.avatarURL)
+        .setColor(0x00AE86)
+        .setDescription(messageDelete.content)
+        .setFooter("Deleted: ")
+        .setTimestamp()
+
+    client.users.get('179604866807627777').send("The following message was deleted:", {embed});
+});
 
 client.login(process.env.BOT_TOKEN)

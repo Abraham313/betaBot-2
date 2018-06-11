@@ -16,6 +16,8 @@ exports.run = async (client, message, args, member) => {
         .addField("-markdown", "How to make your posts stand out")
         .addField("-bug <bug message>", "Submit a bug report for {zeroBot}")
         .addField("-aboutbot", "Find the GitHub repo here, contributions welcome!")
+        .addField("-challenge <link>", "Submit your coding challenge entry")
+        .addField("-challenge-help", "Useful information about submitting your entry")
     message.channel.send({embed: embed});
 };
   
