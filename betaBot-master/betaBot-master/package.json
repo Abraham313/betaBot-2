@@ -1,0 +1,16 @@
+{
+  "name": "zerobot",
+  "version": "1.0.0",
+  "description": "A simple discord bot for zero to mastery",
+  "main": "bot.js",
+  "author": "Matt Smith",
+  "license": "ISC",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "node-fetch": "^2.1.2",
+    "snekfetch": "^3.6.4"
+  }
+}
