@@ -24,7 +24,7 @@ exports.run = async (client, message, args, member) => {
     console.log("b",issuedChannel)
 
     if(!antiman) {message.channel.send("You need to mention a user eg. @username")}
-    else if (!issuedChannel === chanID.womenInTechChannel) {message.channel.send("You can only use this command in #woment-in-tech")}
+    else if (issuedChannel !== chanID.womenInTechChannel) {message.channel.send("You can only use this command in #woment-in-tech")}
     else {
         client.channels.get(chanID.womenInTechChannel).overwritePermissions(antiman, {SEND_MESSAGES: false});
         message.channel.send({embed: ladiesEmbed});

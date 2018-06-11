@@ -57,6 +57,12 @@ client.commands = new Discord.Collection();
             }
         }
 
+        // Checks if Message Contains Discord Link
+        if(message.includes("discord.gg/")) {
+            message.delete(1000); //delete message
+            message.reply(" You are not permitted to send Discord Server links in this community")           
+        }
+
         //Public channel message
         let messageArray = message.content.split(/\s+/g);
         let command = messageArray[0];
